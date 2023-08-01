@@ -11,17 +11,9 @@ BRIGHTNESS=$(cat ${BRIGHTNESS_FILE})
 
 #echo $BRIGHTNESS
 
-if [[ ${BRIGHTNESS} == 90 ]]; then
+if [[ ${BRIGHTNESS} == 397 ]]; then
 
-  echo 3 > ${BRIGHTNESS_FILE}
-
-elif [[ ${BRIGHTNESS} == 98 ]]; then
-
-  echo 30 > ${BRIGHTNESS_FILE}
-
-elif [[ ${BRIGHTNESS} == 106 ]]; then
-
-  echo 60 > ${BRIGHTNESS_FILE}
+  echo 90 > ${BRIGHTNESS_FILE}
 
 fi
 
