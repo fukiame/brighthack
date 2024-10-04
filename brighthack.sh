@@ -9,20 +9,38 @@ BRIGHTNESS_FILE=/sys/class/leds/lcd-backlight/brightness
 
 BRIGHTNESS=$(cat ${BRIGHTNESS_FILE})
 
+if uname -r | grep niigo || [ -f "/sdcard/.lb" ]; then
+  LB=1
+fi
+
 #echo $BRIGHTNESS
 
-if [[ ${BRIGHTNESS} == 90 ]]; then
+if [[ ${BRIGHTNESS} >= 970 ]]; then
 
-  echo 3 > ${BRIGHTNESS_FILE}
+  echo 2047 > ${BRIGHTNESS_FILE}
 
-elif [[ ${BRIGHTNESS} == 98 ]]; then
+elif [[ ${BRIGHTNESS} >= 920 ]]; then
 
-  echo 30 > ${BRIGHTNESS_FILE}
+  echo 1998 > ${BRIGHTNESS_FILE}
 
-elif [[ ${BRIGHTNESS} == 106 ]]; then
+elif [[ ${BRIGHTNESS} >= 900 ]]; then
 
-  echo 60 > ${BRIGHTNESS_FILE}
+  echo 1942 > ${BRIGHTNESS_FILE}
 
 fi
+
+[ -z "$LB" ] && exit 0
+
+if [[ ${BRIGHTNESS} == 20 ]]; then
+
+  echo 18 > ${BRIGHTNESS_FILE}
+
+elif [[ ${BRIGHTNESS} == 16 ]]; then
+
+  echo 12 > ${BRIGHTNESS_FILE}
+
+elif [[ ${BRIGHTNESS} == 13 ]]; then
+
+  echo 6 > ${BRIGHTNESS_FILE}
 
 exit 0
