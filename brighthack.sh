@@ -9,6 +9,10 @@ BRIGHTNESS_FILE=/sys/class/leds/lcd-backlight/brightness
 
 BRIGHTNESS=$(cat ${BRIGHTNESS_FILE})
 
+# TODO! properly detect AAL status somehow instead of hardcoding our localversion
+#       defconfig grep-ing does not work as we spoof stock defconfig
+#       AAL does not seem to provide any procfs / sysfs changes when its disabled
+#       fck you Mediatek :D
 if uname -r | grep niigo || [ -f "/sdcard/.lb" ]; then
   LB=1
 fi
@@ -42,5 +46,7 @@ elif [[ ${BRIGHTNESS} == 16 ]]; then
 elif [[ ${BRIGHTNESS} == 13 ]]; then
 
   echo 6 > ${BRIGHTNESS_FILE}
+
+fi
 
 exit 0
