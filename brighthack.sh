@@ -19,15 +19,15 @@ fi
 
 #echo $BRIGHTNESS
 
-if [[ ${BRIGHTNESS} >= 970 ]]; then
+if [ ${BRIGHTNESS} -gt 970 ]; then
 
   echo 2047 > ${BRIGHTNESS_FILE}
 
-elif [[ ${BRIGHTNESS} >= 920 ]]; then
+elif [ ${BRIGHTNESS} -gt 920 ]; then
 
   echo 1998 > ${BRIGHTNESS_FILE}
 
-elif [[ ${BRIGHTNESS} >= 900 ]]; then
+elif [ ${BRIGHTNESS} -gt 900 ]; then
 
   echo 1942 > ${BRIGHTNESS_FILE}
 
@@ -35,15 +35,15 @@ fi
 
 [ -z "$LB" ] && exit 0
 
-if [[ ${BRIGHTNESS} == 20 ]]; then
+if [ ${BRIGHTNESS} -eq 20 ]; then
 
   echo 18 > ${BRIGHTNESS_FILE}
 
-elif [[ ${BRIGHTNESS} == 16 ]]; then
+elif [ ${BRIGHTNESS} -eq 16 ]; then
 
   echo 12 > ${BRIGHTNESS_FILE}
 
-elif [[ ${BRIGHTNESS} == 13 ]]; then
+elif [ ${BRIGHTNESS} -eq 13 ]; then
 
   echo 6 > ${BRIGHTNESS_FILE}
 
